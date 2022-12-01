@@ -1,8 +1,8 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 
-const Form = (props) => {
+const Form = () => {
 
-    const [userChoice, setUserChoice] = useState("");
+    // const [userChoice, setUserChoice] = useState("");
 
     const submitHandler = (e) => {
         console.log("you submitted")
