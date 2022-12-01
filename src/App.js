@@ -6,7 +6,7 @@ function App() {
 
   //first create our states:
 
-  const [line, setLine] = useState([]);
+  // const [line, setLine] = useState([]);
 
   //call useEffect with an empty dependency array so it executes its callback on component mount and not again TODO: figure out which dependency array i really need here...
   useEffect(() => {
