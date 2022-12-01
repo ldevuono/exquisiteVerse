@@ -1,11 +1,7 @@
-import { useState } from 'react';
 import Form from './Form.js'
 import './App.css';
 
 function App() {
-
-  //first create our states:
-  // const [line, setLine] = useState([]);
 
   // function that will get the user's choice from the Form.js component:
   const chooseNumber = (e, userChoice) => {

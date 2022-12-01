@@ -13,7 +13,7 @@ const Form = (props) => {
         props.chooseNumber(e, userChoice)
         // API call with axios:
         axios({
-            url: "https://poetrydb.org/random/${userChoice}/lines,author",
+            url: `https://poetrydb.org/random/${userChoice}/lines,author`,
             method: "GET",
             dataResponse: "json",
             params: {
