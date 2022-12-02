@@ -2,17 +2,19 @@ import { useState } from 'react';
 import axios from 'axios';
 import Form from './Form.js'
 import './App.css';
-
+import DisplayPoem from './DisplayPoem'
 function App() {
 
   // create state to hold user input when they switch between dropdown options (number of lines of poetry), and to hold the poem the user creates
   const [userChoice, setUserChoice] = useState("");
-  const [lines, setLines] = useState([]);
+  const [poem, setPoem] = useState([]);
+
 
   // create a function that will get the user's choice from the dropdown menu and prevent default browser refresh behaviour:
   const chooseNumber = (e) => {
     e.preventDefault();
   }
+
 
   // function to call the API and parse data on submit
   const submitHandler = (e) => {
@@ -28,13 +30,16 @@ function App() {
     })
       .then((res) => {
         const resArray = res.data;
-        resArray.map((line) => {
-          let poem = line.lines[1]
-          console.log(poem)
-          return poem
+        // mapping through json results to get the second line of every returned set of lines
+        const poem = resArray.map((line) => {
+          let lines = line.lines[1]
+          let author = line.author
+          console.log(lines);
+          console.log(author)
+          return lines
         })
         // putting the created poem into state:
-        setLines(resArray);
+        setPoem(poem);
       })
   };
 
@@ -51,7 +56,6 @@ function App() {
     setUserChoice(e.target.value)
   }
 
-
   return (
     <div className="App">
       <header>
@@ -63,6 +67,8 @@ function App() {
         handleChange={handleChange}
         submitHandler={submitHandler}
       />
+      <DisplayPoem
+        poem={poem} />
     </div>
   );
 }

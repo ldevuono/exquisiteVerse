@@ -10,7 +10,7 @@ const Form = (props) => {
                 onChange={props.handleChange}
                 value={props.userChoice}
             >
-                <option value="" disabled>Pick one:</option>
+                <option value="" disabled >Pick one:</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
