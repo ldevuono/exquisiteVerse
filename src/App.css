@@ -15,11 +15,22 @@ body {
 }
 
 
-.App {
+.mainContent {
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+a:hover,
+a:focus {
+  color: indianred;
 }
 
 /* header */
@@ -109,4 +120,58 @@ button {
 button:hover,
 button:focus {
   background-color: indianred;
+}
+
+/* footer */
+footer {
+  font-size: 1rem;
+  text-align: center;
+  padding-top: 30px;
+  position: relative;
+}
+
+
+@media (max-width:900px) {
+  .mainContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .poemGenerator {
+    margin: 20px 0;
+  }
+
+  .example {
+    margin-bottom: 0;
+  }
+
+  .instructions {
+    width: 100%;
+    padding: 0;
+  }
+
+  form {
+    padding: 0;
+  }
+}
+
+@media (max-width:430px) {
+  .example p {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .instructions {
+    font-size: .9rem;
+  }
+
+  footer {
+    font-size: .9rem;
+  }
+}
+
+@media (max-width:370px) {
+  .poemBox {
+    width: 250px;
+  }
 }
