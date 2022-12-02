@@ -2,14 +2,15 @@ import { useState } from 'react';
 import axios from 'axios';
 import Form from './Form.js';
 import './App.css';
-import './Setup.css';
 import Footer from './Footer.js';
 import DisplayPoem from './DisplayPoem';
+import DisplayAuthors from './DisplayAuthors';
 function App() {
 
-  // create state to hold user input when they switch between dropdown options (number of lines of poetry), and to hold the poem the user creates
+  // create state to hold user input when they switch between dropdown options (number of lines of poetry), and to hold the poem the user creates and its authors:
   const [userChoice, setUserChoice] = useState("");
   const [poem, setPoem] = useState([]);
+  const [authors, setAuthor] = useState([]);
 
 
   // create a function that will get the user's choice from the dropdown menu and prevent default browser refresh behaviour:
@@ -31,16 +32,12 @@ function App() {
     })
       .then((res) => {
         const resArray = res.data;
-        // console.log(resArray)
 
         // mapping through json results to get the second line of every returned set of lines
         const poem = resArray.map((returnedPoem) => {
           const lines = (returnedPoem.lines[1] + "  /  ");
-          const author = returnedPoem.author;
-          //TODO: get author info on page
-          console.log(author)
 
-          //TODO: testing another map inside
+          //TODO: testing another map inside to check for empty strings
           // const checkLine = lines.map((line) => {
           //   if (line === "  /  ") {
           //     return null
@@ -50,8 +47,13 @@ function App() {
           // });
           return lines
         });
+        //mapping through json results to get the names of the authors of the lines of poetry:
+        const authors = resArray.map((returnedPoem) => {
+          const author = (returnedPoem.author + " / ");
+          return author;
+        })
 
-        //TODO: testing filter for empty space handling
+        //TODO: testing filter for empty space error handling
         // const poemCopy = [...poem]
         // const filteredPoems = poemCopy.filter((line) => {
         //   return line !== " / " || "" || "  /  ";
@@ -59,6 +61,7 @@ function App() {
 
         // putting the created and filtered poem into state:
         setPoem(poem);
+        setAuthor(authors);
       });
   };
 
@@ -94,6 +97,8 @@ function App() {
             />
             <DisplayPoem
               poem={poem} />
+            <DisplayAuthors
+              authors={authors} />
           </div>
         </main>
       </div>
