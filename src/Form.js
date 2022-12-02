@@ -9,15 +9,16 @@ const Form = (props) => {
                 name="lineNumber"
                 onChange={props.handleChange}
                 value={props.userChoice}
+                defaultValue={"default"}
             >
-                <option value="" disabled >Pick one:</option>
+                <option value="default" disabled >Pick one:</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
             <div className="button">
-                <button type="submit">Make your poem</button>
+                <button type="submit">Create your poem</button>
             </div>
         </form>
     )

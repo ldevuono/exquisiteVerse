@@ -16,7 +16,6 @@ function App() {
     e.preventDefault();
   }
 
-
   // function to call the API and parse data on submit
   const submitHandler = (e) => {
     chooseNumber(e, userChoice)
@@ -33,8 +32,9 @@ function App() {
         const resArray = res.data;
         // mapping through json results to get the second line of every returned set of lines
         const poem = resArray.map((line) => {
-          let lines = line.lines[1]
+          let lines = (line.lines[1] + "  /  ");
           let author = line.author
+          //TODO: get author info on page
           console.log(author)
           return lines
         })
@@ -42,8 +42,6 @@ function App() {
         setPoem(poem);
       })
   };
-
-  // TODO: figure out how to get "pick one" as default on form
 
 
   // TODO:  filter through array for lines that are not empty strings??
@@ -69,7 +67,7 @@ function App() {
         <div className="instructions wrapper">
           <p>Recognize this poem? It's an exquisite corpse: comprised of one randomly generated line each from Walt Whitman, Oscar Wilde, Percy Bysshe Shelley, and Anne Brontë.</p>
           <p>
-            Try making your own! Choose a number of lines, and Exquisite Verse will comb through a database of poems and create a poem of that length out of randomly generated lines from existing poems. Writing poetry is easy! </p>
+            Try making your own! Choose a number of lines, and Exquisite Verse will comb through a database of poetry and create a poem of that length out of randomly generated lines from existing poems. Writing poetry is easy! </p>
         </div>
       </header>
       <main className="wrapper">
@@ -86,7 +84,5 @@ function App() {
     </div>
   );
 }
-
-
 
 export default App;
