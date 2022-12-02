@@ -2,10 +2,10 @@
 
 function DisplayPoem(props) {
     return (
-        <section>
+        <section className="poemBox">
             {/* TODO: if poem contains empty string, insert _______ */}
             {/* else */}
-            <div>{props.poem}</div>
+            <div className="poem">{props.poem}</div>
         </section>
     );
 }

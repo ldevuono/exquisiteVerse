@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import Form from './Form.js'
 import './App.css';
+import './Setup.css';
 import DisplayPoem from './DisplayPoem'
 function App() {
 
@@ -34,7 +35,6 @@ function App() {
         const poem = resArray.map((line) => {
           let lines = line.lines[1]
           let author = line.author
-          console.log(lines);
           console.log(author)
           return lines
         })
@@ -59,16 +59,25 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>exquisite verse</h1>
-        <h2>dev branch</h2>
+        <h1>exquisite verse - dev branch</h1>
+        <div className="example">
+          <p>O To make the most jubilant poem!</p>
+          <p>The people knelt upon the ground with awe;</p>
+          <p>In my faint eyes, and that my heart beat fast</p>
+          <p>Could kindle raptures so divine</p>
+        </div>
       </header>
-      <Form
-        chooseNumber={chooseNumber}
-        handleChange={handleChange}
-        submitHandler={submitHandler}
-      />
-      <DisplayPoem
-        poem={poem} />
+      <main>
+        <div class="poemGenerator">
+          <Form
+            chooseNumber={chooseNumber}
+            handleChange={handleChange}
+            submitHandler={submitHandler}
+          />
+          <DisplayPoem
+            poem={poem} />
+        </div>
+      </main>
     </div>
   );
 }
