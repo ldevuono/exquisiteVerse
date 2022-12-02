@@ -2,7 +2,7 @@
 const Form = (props) => {
 
     return (
-        <form onSubmit={props.submitHandler}>
+        <form onSubmit={props.submitHandler} className="wrapper">
             <label htmlFor="lineNumber">How many lines do you want your poem to be?</label>
             <select
                 id="lineNumber"
@@ -16,7 +16,9 @@ const Form = (props) => {
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-            <button type="submit">Make your poem!</button>
+            <div className="button">
+                <button type="submit">Make your poem</button>
+            </div>
         </form>
     )
 };
