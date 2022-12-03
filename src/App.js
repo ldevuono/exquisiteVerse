@@ -35,7 +35,7 @@ function App() {
 
         // mapping through json results to get the second line of every returned set of lines
         const poem = resArray.map((returnedPoem) => {
-          const lines = (returnedPoem.lines[1] + "  /  ");
+          const lines = (returnedPoem.lines[3] + "  /  ");
 
           //TODO: testing another map inside to check for empty strings
           // const checkLine = lines.map((line) => {
@@ -47,6 +47,7 @@ function App() {
           // });
           return lines
         });
+
         //mapping through json results to get the names of the authors of the lines of poetry:
         const authors = resArray.map((returnedPoem) => {
           const author = (returnedPoem.author + " / ");

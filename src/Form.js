@@ -9,10 +9,11 @@ const Form = (props) => {
                 name="lineNumber"
                 onChange={props.handleChange}
                 value={props.userChoice}
-                defaultValue={"default"}
+                defaultValue={""}
+                required={true}
             >
-                <option value="default" disabled >Pick one:</option>
-                <option value="2">2</option>
+                <option value="" disabled>Pick one:</option>
+                <option value="2" required>2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>

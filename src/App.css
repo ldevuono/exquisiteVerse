@@ -340,11 +340,9 @@ h1 {
 .authorBox {
   margin-top: 30px;
   font-size: .9rem;
+  font-style: italic;
 }
 
-.authorBox span {
-  display: block;
-}
 
 /* form */
 form {
