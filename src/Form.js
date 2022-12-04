@@ -18,7 +18,7 @@ const Form = (props) => {
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-            <div className="button">
+            <div>
                 <button type="submit">Create your poem</button>
             </div>
         </form>

@@ -3,7 +3,7 @@
 function DisplayPoem(props) {
     return (
         <section className="poemBox">
-            <div className="poem">{props.poem}</div>
+            <div className="poem">{props.poem.join(" / ")}</div>
         </section>
     );
 }

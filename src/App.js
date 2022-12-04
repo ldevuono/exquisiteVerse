@@ -1,16 +1,26 @@
-import { useState } from 'react';
+import './App.css';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Form from './Form.js';
-import './App.css';
-import Footer from './Footer.js';
 import DisplayPoem from './DisplayPoem';
 import DisplayAuthors from './DisplayAuthors';
+import LibraryButton from './LibraryButton.js';
+import Header from './Header.js';
+//importing firebase modules:
+import { getDatabase, ref, onValue, push } from 'firebase/database';
+import firebase from './firebase';
+
+
 function App() {
 
   // create state to hold user input when they switch between dropdown options (number of lines of poetry), and to hold the poem the user creates and its authors:
   const [userChoice, setUserChoice] = useState("");
+  // eslint-disable-next-line
   const [poem, setPoem] = useState([]);
   const [authors, setAuthor] = useState([]);
+  const [filteredPoem, setFilteredPoem] = useState([]);
+  // create state for library (saved poems)
+  const [libraryPoems, setLibraryPoems] = useState([]);
 
 
   // create a function that will get the user's choice from the dropdown menu and prevent default browser refresh behaviour:
@@ -35,36 +45,27 @@ function App() {
 
         // mapping through json results to get the second line of every returned set of lines
         const poem = resArray.map((returnedPoem) => {
-          const lines = (returnedPoem.lines[3] + "  /  ");
-
-          //TODO: testing another map inside to check for empty strings
-          // const checkLine = lines.map((line) => {
-          //   if (line === "  /  ") {
-          //     return null
-          //   } else {
-          //     return line
-          //   }
-          // });
+          const lines = returnedPoem.lines[3];
           return lines
         });
 
         //mapping through json results to get the names of the authors of the lines of poetry:
         const authors = resArray.map((returnedPoem) => {
-          const author = (returnedPoem.author + " / ");
+          const author = returnedPoem.author;
           return author;
         })
 
-        //TODO: testing filter for empty space error handling
-        // const poemCopy = [...poem]
-        // const filteredPoems = poemCopy.filter((line) => {
-        //   return line !== " / " || "" || "  /  ";
-        // })
+        // filtering the returned poem for empty strings
+        const filteredPoem = poem.filter((line) => {
+          return line !== "";
+        })
 
-        // putting the created and filtered poem into state:
+        // putting the created and filtered poem and author names into state:
         setPoem(poem);
+        setFilteredPoem(filteredPoem);
         setAuthor(authors);
       });
-  };
+  }
 
   // creating the function to pass to the onChange eventlistener through props:
   const handleChange = (e) => {
@@ -72,23 +73,47 @@ function App() {
     setUserChoice(e.target.value)
   }
 
+  // function to store poems in library
+  useEffect(() => {
+    // create a variable to hold our firebase details
+    const database = getDatabase(firebase);
+
+    // create a variable that makes reference to our database
+    const dbRef = ref(database);
+
+    // add an event listener to that variable that will fire from the database; call that data 'response':
+    onValue(dbRef, (response) => {
+      // creating a variable to store the new state:
+      const newState = [];
+      // storing the response from our query to Firebase inside a variable, using firebase's .val() method to parse our database the way we want it:
+      const data = response.val();
+      for (let key in data) {
+        // inside the loop, we push each poem to an array we've already created inside the onValue() function called newState:
+        newState.push(data[key]);
+      }
+      // then, call setBooks in order to update state using the local array newState
+      setLibraryPoems(newState);
+    })
+  }, [])
+
+
+
+
+  // LibrarySubmit:
+  const librarySubmit = (e) => {
+    e.preventDefault();
+    // usual firebase business
+    const database = getDatabase(firebase);
+    const dbRef = ref(database);
+
+    push(dbRef, filteredPoem);
+  }
+
+
   return (
     <div className="App">
       <div className="mainContent">
-        <header className="wrapper">
-          <h1>Exquisite Verse</h1>
-          <div className="example">
-            <p>O to make the most jubilant poem!</p>
-            <p>The people knelt upon the ground with awe;</p>
-            <p>In my faint eyes, and that my heart beat fast</p>
-            <p>Could kindle raptures so divine</p>
-          </div>
-          <div className="instructions wrapper">
-            <p>Recognize this poem? It's an exquisite corpse: comprised of one randomly generated line each from Walt Whitman, Oscar Wilde, Percy Bysshe Shelley, and Anne Brontë.</p>
-            <p>
-              Try making your own! Choose a number of lines, and Exquisite Verse will comb through a database of poetry and create a poem of that length out of randomly generated lines from existing poems. Writing poetry is easy! </p>
-          </div>
-        </header>
+        <Header />
         <main className="wrapper">
           <div className="poemGenerator">
             <Form
@@ -97,15 +122,32 @@ function App() {
               submitHandler={submitHandler}
             />
             <DisplayPoem
-              poem={poem} />
+              poem={filteredPoem} />
             <DisplayAuthors
               authors={authors} />
+            <div className="libraryButton">
+              <LibraryButton
+                librarySubmit={librarySubmit}
+              />
+            </div>
           </div>
         </main>
-      </div>
-      <footer>
-        <Footer />
-      </footer>
+      </div> {/*end .mainContent */}
+      <section className="libraryContent">
+        <div className="library">
+          <h2>Library</h2>
+          {libraryPoems.map((libraryPoem) => {
+            return (
+              <div>
+
+                <li><p>
+                  {libraryPoem.join(" / ")}
+                </p></li>
+              </div>
+            )
+          })}
+        </div>
+      </section>
     </div>
   );
 }

@@ -4,7 +4,7 @@ function DisplayAuthors(props) {
 
     return (
         <section className="authorBox">
-            <div className="authors">{props.authors}</div>
+            <div className="authors">{props.authors.join(" / ")}</div>
         </section>
     );
 }
