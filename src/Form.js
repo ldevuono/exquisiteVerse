@@ -19,7 +19,7 @@ const Form = (props) => {
                 <option value="5">5</option>
             </select>
             <div>
-                <button type="submit">Create your poem</button>
+                <button type="submit" className="createButton">Create your poem</button>
             </div>
         </form>
     )

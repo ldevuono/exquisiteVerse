@@ -373,8 +373,15 @@ button {
   padding: 10px;
   cursor: pointer;
   transition: .2s ease;
-  margin-top: 10px;
   font-size: 1rem;
+}
+
+.createButton {
+  margin-top: 10px;
+}
+
+.libraryButton {
+  margin-top: 3px;
 }
 
 button:hover,
@@ -382,16 +389,7 @@ button:focus {
   background-color: indianred;
 }
 
-/* footer */
-/* footer {
-  font-size: 1rem;
-  text-align: center;
-  padding-top: 30px;
-  position: relative;
-} */
-
 /* Library */
-
 .library {
   background-color: antiquewhite;
   border: 3px solid black;
@@ -401,6 +399,20 @@ button:focus {
   width: 70%;
 }
 
+.library li {
+  font-size: 1.1rem;
+}
+
+.library li:last-child {
+  margin-bottom: 10px;
+}
+
+/* footer */
+footer {
+  font-size: 1rem;
+  text-align: center;
+  padding-top: 30px;
+}
 
 
 /* MEDIA QUERIES */

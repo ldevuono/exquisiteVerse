@@ -6,8 +6,9 @@ import DisplayPoem from './DisplayPoem';
 import DisplayAuthors from './DisplayAuthors';
 import LibraryButton from './LibraryButton.js';
 import Header from './Header.js';
+import Footer from './Footer.js';
 //importing firebase modules:
-import { getDatabase, ref, onValue, push } from 'firebase/database';
+import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import firebase from './firebase';
 
 
@@ -87,19 +88,18 @@ function App() {
       const newState = [];
       // storing the response from our query to Firebase inside a variable, using firebase's .val() method to parse our database the way we want it:
       const data = response.val();
+
+
       for (let key in data) {
         // inside the loop, we push each poem to an array we've already created inside the onValue() function called newState:
-        newState.push(data[key]);
+        newState.push({ key: key, name: data[key] });
       }
       // then, call setBooks in order to update state using the local array newState
       setLibraryPoems(newState);
     })
   }, [])
 
-
-
-
-  // LibrarySubmit:
+  // function to push a poem to the library upon submitting the library form:
   const librarySubmit = (e) => {
     e.preventDefault();
     // usual firebase business
@@ -107,6 +107,15 @@ function App() {
     const dbRef = ref(database);
 
     push(dbRef, filteredPoem);
+  }
+
+  // function to remove poem from library
+  const handleRemovePoem = (poemId) => {
+    // referencing database again, this time specifically the node of the poem we want to remove:
+    const database = getDatabase(firebase);
+    const dbRef = ref(database, `/${poemId}`);
+
+    remove(dbRef);
   }
 
 
@@ -138,17 +147,21 @@ function App() {
           <h2>Library</h2>
           {libraryPoems.map((libraryPoem) => {
             return (
-              <div>
-
-                <li><p>
-                  {libraryPoem.join(" / ")}
-                </p></li>
+              <div
+                key={libraryPoem.key}>
+                <li>
+                  <p>
+                    {libraryPoem.name.join(" / ")}
+                  </p>
+                  <button onClick={() => { handleRemovePoem(libraryPoem.key) }}>Remove poem</button>
+                </li>
               </div>
             )
           })}
         </div>
-      </section>
-    </div>
+      </section >
+      <Footer />
+    </div >
   );
 }
 
