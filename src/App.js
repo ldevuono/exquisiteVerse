@@ -44,9 +44,16 @@ function App() {
       .then((res) => {
         const resArray = res.data;
 
-        // mapping through json results to get the second line of every returned set of lines
+        // mapping through json results to get one line from every returned set of lines
         const poem = resArray.map((returnedPoem) => {
-          const lines = returnedPoem.lines[3];
+          let lines = returnedPoem.lines[3];
+          if (lines === "") {
+            // eslint-disable-next-line
+            let lines = returnedPoem.lines[4];
+          } else if (lines === "") {
+            // eslint-disable-next-line
+            let lines = returnedPoem.lines[2];
+          }
           return lines
         });
 
@@ -60,6 +67,10 @@ function App() {
         const filteredPoem = poem.filter((line) => {
           return line !== "";
         })
+
+        // ????????????
+        //TODO: const filteredPoem = poem.slice(3).find(line => line !== '')
+        // ????????????
 
         // putting the created and filtered poem and author names into state:
         setPoem(poem);
