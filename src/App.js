@@ -50,13 +50,9 @@ function App() {
           if (lines === "") {
             // eslint-disable-next-line
             let lines = returnedPoem.lines[4];
-          } else if (lines === "") {
-            // eslint-disable-next-line
-            let lines = returnedPoem.lines[2];
           }
           return lines
         });
-
         //mapping through json results to get the names of the authors of the lines of poetry:
         const authors = resArray.map((returnedPoem) => {
           const author = returnedPoem.author;
