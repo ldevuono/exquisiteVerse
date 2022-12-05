@@ -6,6 +6,7 @@ import DisplayPoem from './DisplayPoem';
 import DisplayAuthors from './DisplayAuthors';
 import LibraryButton from './LibraryButton.js';
 import Header from './Header.js';
+import Library from './Library';
 import Footer from './Footer.js';
 //importing firebase modules:
 import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
@@ -125,10 +126,9 @@ function App() {
     remove(dbRef);
   }
 
-
   return (
     <div className="App">
-      <div className="mainContent">
+      <section className="mainContent">
         <Header />
         <main className="wrapper">
           <div className="poemGenerator">
@@ -148,25 +148,16 @@ function App() {
             </div>
           </div>
         </main>
-      </div> {/*end .mainContent */}
+      </section> {/*end .mainContent */}
       <section className="libraryContent">
         <div className="library">
           <h2>Library</h2>
-          {libraryPoems.map((libraryPoem) => {
-            return (
-              <div
-                key={libraryPoem.key}>
-                <li>
-                  <p>
-                    {libraryPoem.name.join(" / ")}
-                  </p>
-                  <button onClick={() => { handleRemovePoem(libraryPoem.key) }}>Remove poem</button>
-                </li>
-              </div>
-            )
-          })}
+          <Library
+            handleRemovePoem={handleRemovePoem}
+            libraryPoems={libraryPoems}
+          />
         </div>
-      </section >
+      </section > {/* end .libraryContent*/}
       <Footer />
     </div >
   );
