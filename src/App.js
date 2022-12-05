@@ -17,10 +17,8 @@ function App() {
 
   // create state to hold user input when they switch between dropdown options (number of lines of poetry), and to hold the poem the user creates and its authors:
   const [userChoice, setUserChoice] = useState("");
-  // eslint-disable-next-line
   const [poem, setPoem] = useState([]);
   const [authors, setAuthor] = useState([]);
-  const [filteredPoem, setFilteredPoem] = useState([]);
   // create state for library (saved poems)
   const [libraryPoems, setLibraryPoems] = useState([]);
 
@@ -47,11 +45,7 @@ function App() {
 
         // mapping through json results to get one line from every returned set of lines
         const poem = resArray.map((returnedPoem) => {
-          let lines = returnedPoem.lines[3];
-          if (lines === "") {
-            // eslint-disable-next-line
-            let lines = returnedPoem.lines[4];
-          }
+          let lines = returnedPoem.lines.slice(3).find(line => line !== "");
           return lines
         });
         //mapping through json results to get the names of the authors of the lines of poetry:
@@ -60,18 +54,8 @@ function App() {
           return author;
         })
 
-        // filtering the returned poem for empty strings
-        const filteredPoem = poem.filter((line) => {
-          return line !== "";
-        })
-
-        // ????????????
-        //TODO: const filteredPoem = poem.slice(3).find(line => line !== '')
-        // ????????????
-
-        // putting the created and filtered poem and author names into state:
+        // putting the created poem and author names into state:
         setPoem(poem);
-        setFilteredPoem(filteredPoem);
         setAuthor(authors);
       });
   }
@@ -114,7 +98,7 @@ function App() {
     const database = getDatabase(firebase);
     const dbRef = ref(database);
 
-    push(dbRef, filteredPoem);
+    push(dbRef, poem);
   }
 
   // function to remove poem from library
@@ -138,7 +122,7 @@ function App() {
               submitHandler={submitHandler}
             />
             <DisplayPoem
-              poem={filteredPoem} />
+              poem={poem} />
             <DisplayAuthors
               authors={authors} />
             <div className="libraryButton">
