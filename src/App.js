@@ -136,20 +136,22 @@ function App() {
         </main>
       </section> {/*end .mainContent */}
       <section className="libraryContent">
-        <div className="openCloseLibrary">
+        <div className="openLibrary">
           <button onClick={() => { setShowLibrary(true) }}>Open library</button>
         </div>
-        {showLibrary ? <div className="library">
-          <button onClick={() => { setShowLibrary(false) }} className="closeLibrary">Close</button>
-          <h2>Library</h2>
-          <Library
-            handleRemovePoem={handleRemovePoem}
-            libraryPoems={libraryPoems}
-          />
-        </div>
-          : null}
-      </section> {/* end .libraryContent */}
-      <Footer />
+        {
+          showLibrary ?
+            <div className="library">
+              <button onClick={() => { setShowLibrary(false) }} className="closeLibrary">Close</button>
+              <Library
+                handleRemovePoem={handleRemovePoem}
+                libraryPoems={libraryPoems}
+              />
+            </div>
+            : null
+        }
+      </section > {/* end .libraryContent */}
+      < Footer />
     </div >
   );
 }

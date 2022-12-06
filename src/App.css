@@ -391,13 +391,10 @@ button:focus {
 
 /* Library */
 
-.openCloseLibrary {
+.openLibrary {
   text-align: center;
 }
 
-.openCloseLibrary button:first-child {
-  margin-right: 10px;
-}
 
 .closeLibrary {
   display: block;

@@ -2,6 +2,7 @@
 const Library = (props) => {
     return (
         <div>
+            <h2>Library</h2>
             {props.libraryPoems.map((libraryPoem) => {
                 return (
                     <div key={libraryPoem.key}>
@@ -20,4 +21,3 @@ const Library = (props) => {
 }
 
 export default Library;
-
