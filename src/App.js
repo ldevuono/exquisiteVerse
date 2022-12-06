@@ -2,11 +2,11 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Form from './Form.js';
-import DisplayPoem from './DisplayPoem';
-import DisplayAuthors from './DisplayAuthors';
+import DisplayPoem from './DisplayPoem.js';
+import DisplayAuthors from './DisplayAuthors.js';
 import LibraryButton from './LibraryButton.js';
 import Header from './Header.js';
-import Library from './Library';
+import Library from './Library.js';
 import Footer from './Footer.js';
 //importing firebase modules:
 import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
