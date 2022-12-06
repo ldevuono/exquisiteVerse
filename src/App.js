@@ -22,7 +22,7 @@ function App() {
   // create state for library (saved poems)
   const [libraryPoems, setLibraryPoems] = useState([]);
   // create state for hiding and showing the library on click
-  const [showLibrary, setShowLibrary] = useState(true);
+  const [showLibrary, setShowLibrary] = useState(false);
 
 
   // create a function that will get the user's choice from the dropdown menu and prevent default browser refresh behaviour:
