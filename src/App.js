@@ -21,6 +21,8 @@ function App() {
   const [authors, setAuthor] = useState([]);
   // create state for library (saved poems)
   const [libraryPoems, setLibraryPoems] = useState([]);
+  // create state for hiding and showing the library on click
+  const [showLibrary, setShowLibrary] = useState(true);
 
 
   // create a function that will get the user's choice from the dropdown menu and prevent default browser refresh behaviour:
@@ -134,14 +136,19 @@ function App() {
         </main>
       </section> {/*end .mainContent */}
       <section className="libraryContent">
-        <div className="library">
+        <div className="openCloseLibrary">
+          <button onClick={() => { setShowLibrary(true) }}>Open library</button>
+        </div>
+        {showLibrary ? <div className="library">
+          <button onClick={() => { setShowLibrary(false) }} className="closeLibrary">Close</button>
           <h2>Library</h2>
           <Library
             handleRemovePoem={handleRemovePoem}
             libraryPoems={libraryPoems}
           />
         </div>
-      </section > {/* end .libraryContent*/}
+          : null}
+      </section> {/* end .libraryContent */}
       <Footer />
     </div >
   );

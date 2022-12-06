@@ -390,6 +390,24 @@ button:focus {
 }
 
 /* Library */
+
+.openCloseLibrary {
+  text-align: center;
+}
+
+.openCloseLibrary button:first-child {
+  margin-right: 10px;
+}
+
+.closeLibrary {
+  display: block;
+  text-align: justify;
+  font-weight: bold;
+  border-radius: 0;
+}
+
+
+
 .library {
   background-color: antiquewhite;
   border: 3px solid black;
@@ -469,5 +487,6 @@ footer {
 @media (max-width:370px) {
   .poemBox {
     width: 250px;
+    padding: 30px 10px;
   }
 }
