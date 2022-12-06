@@ -43,7 +43,7 @@ function App() {
       .then((res) => {
         const resArray = res.data;
 
-        // mapping through json results to get one line from every returned set of lines
+        // mapping through json results to get one line from every returned set of lines. if a line is an empty string, it will go to the next line :
         const poem = resArray.map((returnedPoem) => {
           let lines = returnedPoem.lines.slice(3).find(line => line !== "");
           return lines
