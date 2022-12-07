@@ -127,21 +127,21 @@ function App() {
               poem={poem} />
             <DisplayAuthors
               authors={authors} />
-            <div className="libraryButton">
+            <div className="saveAndOpenButtons">
               <LibraryButton
                 librarySubmit={librarySubmit}
               />
+              {/* button to open library */}
+              <button onClick={() => { setShowLibrary(true) }} class="openLibrary">Open library</button>
             </div>
-          </div>
+          </div> {/*end poem generator  */}
         </main>
       </section> {/*end .mainContent */}
       <section className="libraryContent">
-        <div className="openLibrary">
-          <button onClick={() => { setShowLibrary(true) }}>Open library</button>
-        </div>
         {
           showLibrary ?
             <div className="library">
+              {/* button to close library */}
               <button onClick={() => { setShowLibrary(false) }} className="closeLibrary">Close</button>
               <Library
                 handleRemovePoem={handleRemovePoem}
