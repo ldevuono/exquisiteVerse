@@ -132,7 +132,7 @@ function App() {
                 librarySubmit={librarySubmit}
               />
               {/* button to open library */}
-              <button onClick={() => { setShowLibrary(true) }} class="openLibrary">Open library</button>
+              <button onClick={() => { setShowLibrary(true) }} className="openLibrary">Open library</button>
             </div>
           </div> {/*end poem generator  */}
         </main>
