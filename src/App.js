@@ -18,6 +18,8 @@ function App() {
   const [userChoice, setUserChoice] = useState("");
   const [poem, setPoem] = useState([]);
   const [authors, setAuthor] = useState([]);
+  //creating state for loading icon
+  const [loading, setLoading] = useState(false);
   // create state for library (saved poems)
   const [libraryPoems, setLibraryPoems] = useState([]);
   // create state for hiding and showing the library on click
@@ -32,6 +34,7 @@ function App() {
   // function to call the API and parse data on submit
   const submitHandler = (e) => {
     chooseNumber(e, userChoice)
+    setLoading(true)
     // API call with axios:
     axios({
       url: `https://poetrydb.org/random/${userChoice}/lines,author`,
@@ -42,6 +45,7 @@ function App() {
       },
     })
       .then((res) => {
+
         const resArray = res.data;
 
         // mapping through json results to get one line from every returned set of lines. if a line is an empty string, it will go to the next line :
@@ -54,13 +58,12 @@ function App() {
           const author = returnedPoem.author;
           return author;
         })
-
         // putting the created poem and author names into state:
+        setLoading(false)
         setPoem(poem);
         setAuthor(authors);
       });
   }
-
   // creating the function to pass to the onChange eventlistener through props:
   const handleChange = (e) => {
     //get user input into state:
@@ -124,7 +127,8 @@ function App() {
               submitHandler={submitHandler}
             />
             <DisplayPoem
-              poem={poem} />
+              poem={poem}
+              loading={loading} />
             <DisplayAuthors
               authors={authors} />
             <div className="saveAndOpenButtons">
