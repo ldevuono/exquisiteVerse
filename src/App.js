@@ -1,13 +1,12 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Form from './Form.js';
-import DisplayPoem from './DisplayPoem.js';
-import DisplayAuthors from './DisplayAuthors.js';
-import LibraryButton from './LibraryButton.js';
-import Header from './Header.js';
-import Library from './Library.js';
-import Footer from './Footer.js';
+import Form from './components/Form.js';
+import DisplayPoem from './components/DisplayPoem.js';
+import DisplayAuthors from './components/DisplayAuthors.js';
+import LibraryButton from './components/LibraryButton.js';
+import Header from './components/Header.js';
+import Library from './components/Library.js';
 //importing firebase modules:
 import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import firebase from './firebase';
@@ -152,7 +151,6 @@ function App() {
             : null
         }
       </section > {/* end .libraryContent */}
-      < Footer />
     </div >
   );
 }
