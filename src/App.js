@@ -101,6 +101,7 @@ function App() {
     const dbRef = ref(database);
 
     push(dbRef, poem);
+    alert("Poem saved!");
   }
 
   // function to remove poem from library
