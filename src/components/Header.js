@@ -4,7 +4,7 @@ import DisplayPoem from './DisplayPoem.js';
 import DisplayAuthors from './DisplayAuthors.js';
 import LibraryButton from './LibraryButton.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressBook } from '@fortawesome/free-regular-svg-icons';
+import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 
 function Header(props) {
 
@@ -13,7 +13,7 @@ function Header(props) {
             <nav>
                 <Link to="/library">
                     <div className="goToLibrary">
-                        <FontAwesomeIcon icon={faAddressBook} size="xl"></FontAwesomeIcon>
+                        <FontAwesomeIcon icon={faBookmark} size="xl"></FontAwesomeIcon>
                         <p>Library</p>
                     </div></Link>
             </nav>

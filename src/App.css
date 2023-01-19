@@ -299,6 +299,7 @@ li {
 h1 {
   font-size: 3rem;
   text-transform: lowercase;
+  padding-top: 55px;
 }
 
 .example p {
@@ -426,6 +427,8 @@ button:focus {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  transition: .3s ease;
+
 }
 
 /* MEDIA QUERIES */
@@ -451,6 +454,17 @@ button:focus {
 
   .library li {
     width: 90%;
+  }
+}
+
+@media (max-width:600px) {
+  .goToLibrary {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .goToLibrary p {
+    margin-left: 10px;
   }
 }
 
