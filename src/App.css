@@ -271,11 +271,9 @@ body {
   background-color: #c9c0b7;
 }
 
+
 .mainContent {
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 a {
@@ -310,13 +308,9 @@ h1 {
   font-size: 1.1rem;
 }
 
-.example {
-  margin-bottom: 20px;
-}
-
 .instructions {
-  width: 80%;
-  padding: 10px;
+
+  width: 60%;
   font-size: 1rem;
 }
 
@@ -362,7 +356,6 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
   font-size: 1rem;
 }
 
@@ -429,21 +422,15 @@ button:focus {
   margin-top: 10px;
 }
 
-/* MEDIA QUERIES */
-
-/* screen height queries */
-@media (min-height: 730px) {
-  .poemGenerator {
-    margin-top: 100px;
-  }
+.goToLibrary {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
-/* screen width queries */
+/* MEDIA QUERIES */
+
 @media (max-width:900px) {
-  .mainContent {
-    flex-direction: column;
-    align-items: center;
-  }
 
   .poemGenerator {
     margin: 20px 0;

@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 
 const Library = (props) => {
+    const date = new Date();
     return (
         <div>
             <Link to="/"><p>Go Back</p></Link>
@@ -14,6 +15,8 @@ const Library = (props) => {
                             <li>
                                 <p>
                                     {libraryPoem.name.join(" / ")}
+                                </p>
+                                <p>{`${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`}
                                 </p>
                                 <button onClick={() => { props.handleRemovePoem(libraryPoem.key) }}>Remove poem</button>
                             </li>

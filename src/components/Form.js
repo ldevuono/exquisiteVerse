@@ -2,7 +2,7 @@
 const Form = (props) => {
 
     return (
-        <form onSubmit={props.submitHandler} className="wrapper">
+        <form onSubmit={props.submitHandler} >
             <label htmlFor="lineNumber">How many lines do you want your poem to be?</label>
             <select
                 id="lineNumber"
