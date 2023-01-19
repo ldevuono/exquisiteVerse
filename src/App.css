@@ -519,6 +519,10 @@ button:focus {
   .instructions {
     font-size: .9rem;
   }
+
+  .scrolls {
+    display: none;
+  }
 }
 
 @media (max-width:370px) {
@@ -527,7 +531,4 @@ button:focus {
     padding: 30px 10px;
   }
 
-  .scrolls {
-    display: none;
-  }
 }
