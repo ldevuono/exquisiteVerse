@@ -423,7 +423,6 @@ button:focus {
   padding: 5px 10px;
   text-align: center;
   width: 70%;
-  /* position: relative; */
 }
 
 .library li {
@@ -436,16 +435,22 @@ button:focus {
   margin-bottom: 10px;
 }
 
-.scrollUp,
-.scrollDown {
+.scrolls {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   right: 5px;
-  bottom: 20px;
+  bottom: 5px;
+}
+
+.scrollUp,
+.scrollDown {
   border-radius: 0;
   color: black;
   font-size: 1.9rem;
   background: none;
   padding: 5px;
+  border: 2px solid black;
 }
 
 .scrollUp:hover,
@@ -458,6 +463,7 @@ button:focus {
 
 .scrollDown {
   right: 35px;
+  margin-top: 2px;
 }
 
 /* MEDIA QUERIES */
@@ -502,6 +508,11 @@ button:focus {
   .example p {
     margin: 0;
     font-size: 1rem;
+  }
+
+  .scrollUp,
+  .scrollDown {
+    font-size: 1.1rem;
   }
 
   .instructions {

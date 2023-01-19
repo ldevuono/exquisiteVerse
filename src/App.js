@@ -174,8 +174,11 @@ function App() {
             : null
         }
       </section > {/* end .libraryContent */}
-      <button className="scrollDown" onClick={() => scrollToBottom()}>↓</button>
-      <button className="scrollUp" onClick={() => scrollToTop()}>↑</button>
+      <div className="scrolls">
+        <button className="scrollUp" onClick={() => scrollToTop()}>↑</button>
+
+        <button className="scrollDown" onClick={() => scrollToBottom()}>↓</button>
+      </div>
 
     </div >
   );
