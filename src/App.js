@@ -130,10 +130,6 @@ function App() {
     window.scrollTo(0, 0);
   }
 
-  const scrollToBottom = () => {
-    window.scrollTo(0, 5000);
-  }
-
   return (
     <div className="App">
       <section className="mainContent">
@@ -177,7 +173,6 @@ function App() {
       <div className="scrolls">
         <button aria-hidden="true" className="scrollUp" onClick={() => scrollToTop()}>
           ↑ <span class="sr-only">Scroll to top</span></button>
-        <button aria-hidden="true" className="scrollDown" onClick={() => scrollToBottom()}>↓ <span class="sr-only">Scroll to bottom</span></button>
       </div>
 
     </div >

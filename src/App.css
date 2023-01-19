@@ -436,35 +436,25 @@ button:focus {
 }
 
 .scrolls {
-  display: flex;
-  flex-direction: column;
   position: fixed;
   right: 5px;
   bottom: 5px;
 }
 
-.scrollUp,
-.scrollDown {
+.scrollUp {
   border-radius: 0;
   color: white;
   font-size: 1.9rem;
   background: lightcoral;
   padding: 5px;
-  /* border: 2px solid black; */
 }
 
 .scrollUp:hover,
-.scrollDown:hover,
-.scrollUp:focus,
-.scrollDown:focus {
+.scrollUp:focus {
   background-color: indianred;
   color: white;
 }
 
-.scrollDown {
-  right: 35px;
-  margin-top: 2px;
-}
 
 /* MEDIA QUERIES */
 
