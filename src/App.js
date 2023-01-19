@@ -10,8 +10,7 @@ import Library from './components/Library.js';
 //importing firebase modules:
 import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import firebase from './firebase';
-
-
+import Swal from 'sweetalert2';
 function App() {
 
   // create state to hold user input when they switch between dropdown options (number of lines of poetry), and to hold the poem the user creates and its authors:
@@ -103,7 +102,10 @@ function App() {
     const dbRef = ref(database);
 
     push(dbRef, poem);
-    alert("Poem saved!");
+    Swal.fire({
+      text: 'Poem saved',
+      confirmButtonColor: '#f08080',
+    });
   }
 
   // function to remove poem from library
