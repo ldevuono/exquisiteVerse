@@ -436,12 +436,28 @@ button:focus {
   margin-bottom: 10px;
 }
 
-.scroll {
+.scrollUp,
+.scrollDown {
   position: fixed;
-  right: 15px;
-  bottom: 15px;
-  border-radius: 50%;
-  max-height: 30px;
+  right: 5px;
+  bottom: 20px;
+  border-radius: 0;
+  color: black;
+  font-size: 1.9rem;
+  background: none;
+  padding: 5px;
+}
+
+.scrollUp:hover,
+.scrollDown:hover,
+.scrollUp:focus,
+.scrollDown:focus {
+  color: indianred;
+  background: none;
+}
+
+.scrollDown {
+  right: 35px;
 }
 
 /* MEDIA QUERIES */

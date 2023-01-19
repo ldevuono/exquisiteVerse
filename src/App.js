@@ -127,7 +127,11 @@ function App() {
 
   //scroll to top button
   const scrollToTop = () => {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
+  }
+
+  const scrollToBottom = () => {
+    window.scrollTo(0, 5000);
   }
 
   return (
@@ -170,7 +174,9 @@ function App() {
             : null
         }
       </section > {/* end .libraryContent */}
-      <button className="scroll" onClick={() => scrollToTop()}>^</button>
+      <button className="scrollDown" onClick={() => scrollToBottom()}>↓</button>
+      <button className="scrollUp" onClick={() => scrollToTop()}>↑</button>
+
     </div >
   );
 }
