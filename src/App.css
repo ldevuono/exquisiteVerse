@@ -448,17 +448,17 @@ button:focus {
   border-radius: 0;
   color: white;
   font-size: 1.9rem;
-  background: black;
+  background: lightcoral;
   padding: 5px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 
 .scrollUp:hover,
 .scrollDown:hover,
 .scrollUp:focus,
 .scrollDown:focus {
-  background-color: black;
-  color: indianred;
+  background-color: indianred;
+  color: white;
 }
 
 .scrollDown {
