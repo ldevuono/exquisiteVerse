@@ -175,8 +175,9 @@ function App() {
         }
       </section > {/* end .libraryContent */}
       <div className="scrolls">
-        <button className="scrollUp" onClick={() => scrollToTop()}>↑</button>
-        <button className="scrollDown" onClick={() => scrollToBottom()}>↓</button>
+        <button aria-hidden="true" className="scrollUp" onClick={() => scrollToTop()}>
+          ↑ <span class="sr-only">Scroll to top</span></button>
+        <button aria-hidden="true" className="scrollDown" onClick={() => scrollToBottom()}>↓ <span class="sr-only">Scroll to bottom</span></button>
       </div>
 
     </div >
