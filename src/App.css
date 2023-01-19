@@ -300,6 +300,7 @@ h1 {
   font-size: 3rem;
   text-transform: lowercase;
   padding-top: 55px;
+  transition: .3s ease;
 }
 
 .example p {
@@ -476,6 +477,10 @@ button:focus {
 
   .instructions {
     font-size: .9rem;
+  }
+
+  .libraryh1 {
+    font-size: 2.3rem;
   }
 
 }
