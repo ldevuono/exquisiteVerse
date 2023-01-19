@@ -299,8 +299,7 @@ li {
 h1 {
   font-size: 3rem;
   text-transform: lowercase;
-  padding-top: 55px;
-  transition: .3s ease;
+  transition: .2s ease;
 }
 
 .example p {
@@ -466,6 +465,10 @@ button:focus {
 
   .goToLibrary p {
     margin-left: 10px;
+  }
+
+  h1 {
+    padding-top: 55px;
   }
 }
 
