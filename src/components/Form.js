@@ -1,4 +1,3 @@
-
 // form for user to select how many lines they want their poem to be
 const Form = (props) => {
 

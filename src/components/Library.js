@@ -1,8 +1,11 @@
 // library section
+import { Link } from 'react-router-dom';
+
 const Library = (props) => {
     return (
         <div>
-            <h2>Library</h2>
+            <Link to="/"><p>Go Back</p></Link>
+            <h2>Poem Library</h2>
             {props.libraryPoems.map((libraryPoem) => {
                 return (
                     <div key={libraryPoem.key}>
