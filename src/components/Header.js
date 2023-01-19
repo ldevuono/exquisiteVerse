@@ -4,13 +4,14 @@ import DisplayPoem from './DisplayPoem.js';
 import DisplayAuthors from './DisplayAuthors.js';
 import LibraryButton from './LibraryButton.js';
 
-// header with example and instructions
 function Header(props) {
 
     return (
-        <div>
-            <header>
+        <div className="mainContent">
+            <nav>
                 <Link to="/library"><p>Poem Library</p></Link>
+            </nav>
+            <header className="wrapper">
                 <h1>Exquisite Verse</h1>
                 <div className="example">
                     <p>O to make the most jubilant poem!</p>
@@ -24,21 +25,24 @@ function Header(props) {
                         Try making your own! Choose a number of lines, and Exquisite Verse will comb through a database of poetry and create a poem of that length out of randomly generated lines from existing poems. Writing poetry is easy! </p>
                 </div>
             </header>
-            <Form
-                chooseNumber={props.chooseNumber}
-                handleChange={props.handleChange}
-                submitHandler={props.submitHandler}
-            />
-            <DisplayPoem
-                poem={props.poem}
-                loading={props.loading} />
-            <DisplayAuthors
-                authors={props.authors} />
-            <LibraryButton
-                librarySubmit={props.librarySubmit}
-            />
+            <main className="Wrapper">
+                <div className="poemGenerator">
+                    <Form
+                        chooseNumber={props.chooseNumber}
+                        handleChange={props.handleChange}
+                        submitHandler={props.submitHandler}
+                    />
+                    <DisplayPoem
+                        poem={props.poem}
+                        loading={props.loading} />
+                    <DisplayAuthors
+                        authors={props.authors} />
+                    <LibraryButton
+                        librarySubmit={props.librarySubmit}
+                    />
+                </div>
+            </main>
         </div>
-
     );
 }
 

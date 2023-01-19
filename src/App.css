@@ -282,6 +282,9 @@ a {
   text-decoration: none;
   color: inherit;
   font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 15px;
 }
 
 a:hover,
@@ -355,11 +358,11 @@ h1 {
 
 
 /* form */
-form.wrapper {
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 30px;
+  padding-top: 20px;
   font-size: 1rem;
 }
 
@@ -386,20 +389,10 @@ button {
   font-size: 1rem;
 }
 
-
 .createButton {
   margin-top: 10px;
 }
 
-.saveAndOpenButtons {
-  display: flex;
-  align-items: center;
-  margin-top: 5px;
-}
-
-.openLibrary {
-  margin-left: 10px;
-}
 
 button:hover,
 button:focus {
@@ -407,14 +400,6 @@ button:focus {
 }
 
 /* Library */
-
-.closeLibrary {
-  display: block;
-  text-align: justify;
-  font-weight: bold;
-  border-radius: 0;
-}
-
 
 .library {
   background-color: antiquewhite;
@@ -425,6 +410,11 @@ button:focus {
   width: 70%;
 }
 
+.libraryh1 {
+  text-transform: none;
+  text-align: center;
+}
+
 .library li {
   font-size: 1.1rem;
   width: 65%;
@@ -432,38 +422,11 @@ button:focus {
 }
 
 .library li:last-child {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-.scrolls {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  right: 5px;
-  bottom: 5px;
-}
-
-.scrollUp,
-.scrollDown {
-  border-radius: 0;
-  color: white;
-  font-size: 1.9rem;
-  background: lightcoral;
-  padding: 5px;
-  /* border: 2px solid black; */
-}
-
-.scrollUp:hover,
-.scrollDown:hover,
-.scrollUp:focus,
-.scrollDown:focus {
-  background-color: indianred;
-  color: white;
-}
-
-.scrollDown {
-  right: 35px;
-  margin-top: 2px;
+.libraryButton {
+  margin-top: 10px;
 }
 
 /* MEDIA QUERIES */
@@ -510,19 +473,10 @@ button:focus {
     font-size: 1rem;
   }
 
-  .scrollUp,
-  .scrollDown {
-    font-size: 1.1rem;
-  }
-
-
   .instructions {
     font-size: .9rem;
   }
 
-  .scrolls {
-    display: none;
-  }
 }
 
 @media (max-width:370px) {
