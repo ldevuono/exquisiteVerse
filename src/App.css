@@ -423,6 +423,7 @@ button:focus {
   padding: 5px 10px;
   text-align: center;
   width: 70%;
+  /* position: relative; */
 }
 
 .library li {
@@ -435,13 +436,13 @@ button:focus {
   margin-bottom: 10px;
 }
 
-/* footer */
-footer {
-  font-size: .8rem;
-  text-align: center;
-  padding-top: 30px;
+.scroll {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  max-height: 30px;
 }
-
 
 /* MEDIA QUERIES */
 

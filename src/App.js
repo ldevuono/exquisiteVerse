@@ -102,10 +102,17 @@ function App() {
     const dbRef = ref(database);
 
     push(dbRef, poem);
-    Swal.fire({
-      text: 'Poem saved',
-      confirmButtonColor: '#f08080',
-    });
+    if (poem.length === 0) {
+      Swal.fire({
+        text: 'Please create a poem first',
+        confirmButtonColor: '#f08080',
+      });
+    } else {
+      Swal.fire({
+        text: 'Poem saved',
+        confirmButtonColor: '#f08080',
+      });
+    }
   }
 
   // function to remove poem from library
@@ -115,6 +122,12 @@ function App() {
     const dbRef = ref(database, `/${poemId}`);
 
     remove(dbRef);
+  }
+
+
+  //scroll to top button
+  const scrollToTop = () => {
+    window.scrollTo(0, 0)
   }
 
   return (
@@ -157,6 +170,7 @@ function App() {
             : null
         }
       </section > {/* end .libraryContent */}
+      <button className="scroll" onClick={() => scrollToTop()}>^</button>
     </div >
   );
 }
