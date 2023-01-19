@@ -526,4 +526,8 @@ button:focus {
     width: 250px;
     padding: 30px 10px;
   }
+
+  .scrolls {
+    display: none;
+  }
 }
