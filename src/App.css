@@ -446,9 +446,9 @@ button:focus {
 .scrollUp,
 .scrollDown {
   border-radius: 0;
-  color: black;
+  color: white;
   font-size: 1.9rem;
-  background: none;
+  background: black;
   padding: 5px;
   border: 2px solid black;
 }
@@ -457,8 +457,8 @@ button:focus {
 .scrollDown:hover,
 .scrollUp:focus,
 .scrollDown:focus {
+  background-color: black;
   color: indianred;
-  background: none;
 }
 
 .scrollDown {
