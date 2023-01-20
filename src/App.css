@@ -339,6 +339,15 @@ main {
   align-items: center;
 }
 
+.authors {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.authorBox {
+  transition: .2s ease;
+}
+
 .poemBox {
   background-color: antiquewhite;
   width: 300px;
@@ -426,8 +435,10 @@ button:focus {
 
 .library li {
   font-size: 1.1rem;
-  width: 65%;
+  width: 100%;
   margin: 0 auto;
+  border: 3px solid black;
+  padding: 10px;
 }
 
 .library li:last-child {
@@ -482,15 +493,9 @@ button:focus {
     padding: 0;
   }
 
-  .library li {
+  /* .library li {
     width: 90%;
-  }
-}
-
-@media(max-width:800px) {
-  .authorBox {
-    padding: 0 200px;
-  }
+  } */
 }
 
 @media (max-width:700px) {
@@ -517,9 +522,7 @@ button:focus {
   span {
     display: block;
   }
-
 }
-
 
 @media (max-width:370px) {
   .poemBox {
@@ -529,8 +532,12 @@ button:focus {
 
 }
 
-@media (max-width:890px) and (min-height:750px) {
+@media (max-width:460px) and (min-height:550px) {
   .authorBox {
-    padding: 0 310px;
+    font-size: .8rem;
+  }
+
+  .authors {
+    width: 40%;
   }
 }
