@@ -528,3 +528,9 @@ button:focus {
   }
 
 }
+
+@media (max-width:890px) and (min-height:750px) {
+  .authorBox {
+    padding: 0 310px;
+  }
+}
