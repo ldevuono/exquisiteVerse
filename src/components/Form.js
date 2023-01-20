@@ -3,7 +3,7 @@ const Form = (props) => {
 
     return (
         <form onSubmit={props.submitHandler} >
-            <label htmlFor="lineNumber">How many lines do you want your poem to be?</label>
+            <label htmlFor="lineNumber">How many lines do you<span> want your poem to be?</span> </label>
             <select
                 id="lineNumber"
                 name="lineNumber"
