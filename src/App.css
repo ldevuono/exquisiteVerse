@@ -451,10 +451,20 @@ button:focus {
 
 /* MEDIA QUERIES */
 
+@media (min-height: 730px) {
+  main {
+    margin-top: 200px;
+  }
+}
+
 @media (max-width:900px) {
 
   .mainContent {
     flex-direction: column;
+  }
+
+  main {
+    margin-top: 0;
   }
 
   .poemGenerator {
