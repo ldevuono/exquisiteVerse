@@ -14,8 +14,6 @@ const Library = (props) => {
                                 <p>
                                     {libraryPoem.name.join(" / ")}
                                 </p>
-                                <p>
-                                </p>
                                 <button onClick={() => { props.handleRemovePoem(libraryPoem.key) }}>Remove poem</button>
                             </li>
                         </div>
