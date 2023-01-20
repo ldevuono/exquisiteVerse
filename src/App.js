@@ -1,18 +1,15 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Form from './components/Form.js';
-import DisplayPoem from './components/DisplayPoem.js';
-import DisplayAuthors from './components/DisplayAuthors.js';
-import LibraryButton from './components/LibraryButton.js';
 import Header from './components/Header.js';
 import Library from './components/Library.js';
+import { Routes, Route } from 'react-router-dom';
 //importing firebase modules:
 import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import firebase from './firebase';
 import Swal from 'sweetalert2';
-function App() {
 
+function App() {
   // create state to hold user input when they switch between dropdown options (number of lines of poetry), and to hold the poem the user creates and its authors:
   const [userChoice, setUserChoice] = useState("");
   const [poem, setPoem] = useState([]);
@@ -21,9 +18,6 @@ function App() {
   const [loading, setLoading] = useState(false);
   // create state for library (saved poems)
   const [libraryPoems, setLibraryPoems] = useState([]);
-  // create state for hiding and showing the library on click
-  const [showLibrary, setShowLibrary] = useState(false);
-
 
   // create a function that will get the user's choice from the dropdown menu and prevent default browser refresh behaviour:
   const chooseNumber = (e) => {
@@ -124,57 +118,25 @@ function App() {
     remove(dbRef);
   }
 
-
-  //scroll to top button
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  }
-
   return (
     <div className="App">
-      <section className="mainContent">
-        <Header />
-        <main className="wrapper">
-          <div className="poemGenerator">
-            <Form
-              chooseNumber={chooseNumber}
-              handleChange={handleChange}
-              submitHandler={submitHandler}
-            />
-            <DisplayPoem
-              poem={poem}
-              loading={loading} />
-            <DisplayAuthors
-              authors={authors} />
-            <div className="saveAndOpenButtons">
-              <LibraryButton
-                librarySubmit={librarySubmit}
-              />
-              {/* button to open library */}
-              <button onClick={() => { setShowLibrary(true) }} className="openLibrary">Open library</button>
-            </div>
-          </div> {/*end poem generator  */}
-        </main>
-      </section> {/*end .mainContent */}
-      <section className="libraryContent">
-        {
-          showLibrary ?
-            <div className="library">
-              {/* button to close library */}
-              <button onClick={() => { setShowLibrary(false) }} className="closeLibrary">Close</button>
-              <Library
-                handleRemovePoem={handleRemovePoem}
-                libraryPoems={libraryPoems}
-              />
-            </div>
-            : null
-        }
-      </section > {/* end .libraryContent */}
-      <div className="scrolls">
-        <button aria-hidden="true" className="scrollUp" onClick={() => scrollToTop()}>
-          ↑ <span class="sr-only">Scroll to top</span></button>
-      </div>
-
+      <Routes>
+        <Route path="/" element={<Header
+          chooseNumber={chooseNumber}
+          handleChange={handleChange}
+          submitHandler={submitHandler}
+          poem={poem}
+          loading={loading}
+          authors={authors}
+          librarySubmit={librarySubmit}
+        />}
+        />
+        <Route path="/library" element={<Library
+          libraryPoems={libraryPoems}
+          handleRemovePoem={handleRemovePoem}
+        />}
+        />
+      </Routes>
     </div >
   );
 }

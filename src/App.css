@@ -271,17 +271,20 @@ body {
   background-color: #c9c0b7;
 }
 
+
 .mainContent {
   text-align: center;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 a {
   text-decoration: none;
   color: inherit;
   font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 15px;
 }
 
 a:hover,
@@ -291,13 +294,20 @@ a:focus {
 
 li {
   list-style: none;
+  width: 100vh;
 }
 
 /* header */
 
+header {
+  width: 50%;
+  min-height: 50%;
+}
+
 h1 {
   font-size: 3rem;
   text-transform: lowercase;
+  transition: .2s ease;
 }
 
 .example p {
@@ -307,23 +317,25 @@ h1 {
   font-size: 1.1rem;
 }
 
-.example {
-  margin-bottom: 20px;
-}
-
 .instructions {
-  width: 80%;
-  padding: 10px;
+
+  width: 60%;
   font-size: 1rem;
 }
 
 /* main */
 
+main {
+  width: 100vh;
+  min-height: 50%;
+  margin-top: 60px;
+  margin-right: 30px;
+}
+
 .poemGenerator {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 30px 100px 20px 50px;
 }
 
 .poemBox {
@@ -355,11 +367,10 @@ h1 {
 
 
 /* form */
-form.wrapper {
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 30px;
   font-size: 1rem;
 }
 
@@ -386,20 +397,10 @@ button {
   font-size: 1rem;
 }
 
-
 .createButton {
   margin-top: 10px;
 }
 
-.saveAndOpenButtons {
-  display: flex;
-  align-items: center;
-  margin-top: 5px;
-}
-
-.openLibrary {
-  margin-left: 10px;
-}
 
 button:hover,
 button:focus {
@@ -407,14 +408,6 @@ button:focus {
 }
 
 /* Library */
-
-.closeLibrary {
-  display: block;
-  text-align: justify;
-  font-weight: bold;
-  border-radius: 0;
-}
-
 
 .library {
   background-color: antiquewhite;
@@ -425,6 +418,11 @@ button:focus {
   width: 70%;
 }
 
+.libraryh1 {
+  text-transform: none;
+  text-align: center;
+}
+
 .library li {
   font-size: 1.1rem;
   width: 65%;
@@ -432,44 +430,41 @@ button:focus {
 }
 
 .library li:last-child {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-.scrolls {
-  position: fixed;
-  right: 5px;
-  bottom: 5px;
+.libraryButton {
+  margin-top: 10px;
 }
 
-.scrollUp {
-  border-radius: 0;
-  color: white;
-  font-size: 1.9rem;
-  background: lightcoral;
-  padding: 5px;
+.goToLibrary {
+  display: flex;
+  padding: 10px;
+  transition: .3s ease;
+  align-items: center;
 }
 
-.scrollUp:hover,
-.scrollUp:focus {
-  background-color: indianred;
-  color: white;
+.goToLibrary p {
+  margin-left: 10px;
 }
 
 
 /* MEDIA QUERIES */
 
-/* screen height queries */
 @media (min-height: 730px) {
-  .poemGenerator {
-    margin-top: 100px;
+  main {
+    margin-top: 200px;
   }
 }
 
-/* screen width queries */
 @media (max-width:900px) {
+
   .mainContent {
     flex-direction: column;
-    align-items: center;
+  }
+
+  main {
+    margin-top: 0;
   }
 
   .poemGenerator {
@@ -485,12 +480,14 @@ button:focus {
     padding: 0;
   }
 
-  form {
-    padding: 0;
-  }
-
   .library li {
     width: 90%;
+  }
+}
+
+@media (max-width:700px) {
+  h1 {
+    padding-top: 55px;
   }
 }
 
@@ -500,19 +497,14 @@ button:focus {
     font-size: 1rem;
   }
 
-  .scrollUp,
-  .scrollDown {
-    font-size: 1.1rem;
-  }
-
-
   .instructions {
     font-size: .9rem;
   }
 
-  .scrolls {
-    display: none;
+  .libraryh1 {
+    font-size: 2.3rem;
   }
+
 }
 
 @media (max-width:370px) {
