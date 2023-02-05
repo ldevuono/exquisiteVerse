@@ -18,7 +18,6 @@ function Header(props) {
                     </div></Link>
             </nav>
             <div className="mainContent">
-
                 <header className="wrapper">
                     <h1>Exquisite Verse</h1>
                     <div className="example">

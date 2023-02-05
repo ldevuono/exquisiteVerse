@@ -256,7 +256,6 @@ html {
   overflow: hidden;
 }
 
-
 /* general styles */
 .wrapper {
   width: 85%;
@@ -271,7 +270,6 @@ body {
   background: rgb(201, 192, 183);
   background: radial-gradient(circle, rgba(201, 192, 183, 1) 59%, rgba(223, 213, 187, 1) 100%);
 }
-
 
 .mainContent {
   text-align: center;
@@ -338,6 +336,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .authors {
@@ -359,7 +359,7 @@ main {
   padding: 50px 25px 20px 25px;
   box-shadow: 10px 10px 5px grey;
   font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   position: relative;
 }
 
@@ -496,15 +496,17 @@ button:focus {
     width: 100%;
     padding: 0;
   }
-
-  /* .library li {
-    width: 90%;
-  } */
 }
 
 @media (max-width:700px) {
   h1 {
     padding-top: 55px;
+  }
+
+  main {
+    margin: 0;
+    padding: 0;
+    width: 100%;
   }
 
 }
