@@ -268,7 +268,8 @@ body {
 
   font-family: 'Libre Baskerville', serif;
   font-size: 125%;
-  background-color: #c9c0b7;
+  background: rgb(201, 192, 183);
+  background: radial-gradient(circle, rgba(201, 192, 183, 1) 59%, rgba(223, 213, 187, 1) 100%);
 }
 
 
@@ -349,7 +350,8 @@ main {
 }
 
 .poemBox {
-  background-color: antiquewhite;
+  background: rgb(250, 235, 215);
+  background: radial-gradient(circle, rgba(250, 235, 215, 1) 59%, rgba(240, 207, 174, 1) 89%);
   width: 300px;
   height: 350px;
   display: flex;
@@ -398,7 +400,8 @@ select {
 button {
   border: none;
   border-radius: 30px;
-  background-color: lightcoral;
+  background: rgb(240, 128, 128);
+  background: radial-gradient(circle, rgba(240, 128, 128, 1) 59%, rgb(232, 134, 134) 89%);
   color: white;
   font-weight: bold;
   padding: 10px;
@@ -420,7 +423,6 @@ button:focus {
 /* Library */
 
 .library {
-  background-color: antiquewhite;
   border: 3px solid black;
   margin: 10px auto;
   padding: 5px 10px;
@@ -434,6 +436,8 @@ button:focus {
 }
 
 .library li {
+  background: rgb(250, 235, 215);
+  background: radial-gradient(circle, rgba(250, 235, 215, 1) 59%, rgba(240, 207, 174, 1) 89%);
   font-size: 1.1rem;
   width: 100%;
   margin: 0 auto;
