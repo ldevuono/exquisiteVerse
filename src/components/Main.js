@@ -6,7 +6,7 @@ import LibraryButton from './LibraryButton.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 
-function Header(props) {
+function Main(props) {
 
     return (
         <div>
@@ -26,14 +26,14 @@ function Header(props) {
                         <p>In my faint eyes, and that my heart beat fast</p>
                         <p>Could kindle raptures so divine</p>
                     </div>
-                    <div className="instructions wrapper">
+                    <div className="instructions">
                         <p>Recognize this poem? It's an exquisite corpse: comprised of one randomly generated line each from Walt Whitman, Oscar Wilde, Percy Bysshe Shelley, and Anne Brontë.</p>
                         <p>
                             Try making your own! Choose a number of lines, and Exquisite Verse will comb through a database of poetry and create a poem of that length out of randomly generated lines from existing poems. Writing poetry is easy! </p>
                     </div>
                 </header>
                 <main>
-                    <div className="poemGenerator">
+                    <section className="poemGenerator">
                         <Form
                             chooseNumber={props.chooseNumber}
                             handleChange={props.handleChange}
@@ -47,14 +47,14 @@ function Header(props) {
                         <LibraryButton
                             librarySubmit={props.librarySubmit}
                         />
-                    </div>
+                    </section>
                 </main>
             </div>
         </div>
     );
 }
 
-export default Header;
+export default Main;
 
 
 

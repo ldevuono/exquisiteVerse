@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Header from './components/Header.js';
+import Main from './components/Main.js';
 import Library from './components/Library.js';
 import { Routes, Route } from 'react-router-dom';
 //importing firebase modules:
@@ -121,7 +121,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Header
+        <Route path="/" element={<Main
           chooseNumber={chooseNumber}
           handleChange={handleChange}
           submitHandler={submitHandler}

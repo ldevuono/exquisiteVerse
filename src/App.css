@@ -293,14 +293,13 @@ a:focus {
 
 li {
   list-style: none;
-  width: 100vh;
+  width: 100%;
 }
 
 /* header */
 
 header {
   width: 50%;
-  min-height: 50%;
 }
 
 h1 {
@@ -317,7 +316,7 @@ h1 {
 }
 
 .instructions {
-
+  margin: 0 auto;
   width: 60%;
   font-size: 1rem;
 }
@@ -352,7 +351,8 @@ main {
 .poemBox {
   background: antiquewhite;
   width: 300px;
-  height: 350px;
+  min-height: 350px;
+  max-height: 100%;
   display: flex;
   margin-top: 30px;
   padding: 50px 25px 20px 25px;
@@ -437,7 +437,6 @@ button:focus {
 .library li {
   background: antiquewhite;
   font-size: 1.1rem;
-  width: 100%;
   margin: 0 auto;
   border: 3px solid black;
   padding: 10px;
