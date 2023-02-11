@@ -32,23 +32,21 @@ function Main(props) {
                             Try making your own! Choose a number of lines, and Exquisite Verse will comb through a database of poetry and create a poem of that length out of randomly generated lines from existing poems. Writing poetry is easy! </p>
                     </div>
                 </header>
-                <main>
-                    <section className="poemGenerator">
-                        <Form
-                            chooseNumber={props.chooseNumber}
-                            handleChange={props.handleChange}
-                            submitHandler={props.submitHandler}
-                        />
-                        <DisplayPoem
-                            poem={props.poem}
-                            loading={props.loading} />
-                        <DisplayAuthors
-                            authors={props.authors} />
-                        <LibraryButton
-                            librarySubmit={props.librarySubmit}
-                        />
-                    </section>
-                </main>
+                <section className="poemGenerator wrapper">
+                    <Form
+                        chooseNumber={props.chooseNumber}
+                        handleChange={props.handleChange}
+                        submitHandler={props.submitHandler}
+                    />
+                    <DisplayPoem
+                        poem={props.poem}
+                        loading={props.loading} />
+                    <DisplayAuthors
+                        authors={props.authors} />
+                    <LibraryButton
+                        librarySubmit={props.librarySubmit}
+                    />
+                </section>
             </div>
         </div>
     );
