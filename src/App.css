@@ -364,10 +364,9 @@ main {
 
 .spinner {
   position: absolute;
-  top: 50%;
-  bottom: 50%;
-  left: 0;
-  right: 0;
+  left: 40%;
+  right: 60%;
+  width: 100px;
 }
 
 .authorBox {
