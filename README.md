@@ -7,9 +7,9 @@ Make your own poem out of existing lines of poetry from the PoetryDB API. Writin
 
 # Tools
 - React useEffect and useState hooks  
-- Firebase realtime database  
+- Firebase Realtime Database  
 - responsive CSS  
-- API call using axios  
+- API call using Axios  
 - API loading state and custom spinner  
 - React Router   
 
